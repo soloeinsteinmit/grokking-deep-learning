@@ -1,4 +1,4 @@
-# CHAPTER 2: foundamental concepts: How do Machine Learn
+# CHAPTER 2: foundamental concepts: How do Machines Learn
 
 In this chapter
 
@@ -107,13 +107,11 @@ fig6: ![](sup_para.png)
 
 - An algorithm is either **unsupervised** or **supervised**, and either **parametric** or **nonparametric**.
 
-- Whereas the previous section on supervision is about the _type of pattern_ being learned,
-  parametricism is about the way the learning is _stored_ and often, by extension, the
-  _method for learning_.
+- Whereas the previous section on supervision is about the **_type of pattern_** being learned, parametricism is about the way the learning is **_stored_** and often, by extension, the **_method for learning_**.
 
-- Formal definitions of parametricism versus nonparametricism. _For the record, there’s still some debate around the exact difference._
+- Formal definitions of parametricism versus non-parametricism. _For the record, there’s still some debate around the exact difference._
 
-  > A parametric model is characterized by having a _fixed_ number of parameters, whereas a nonparametric model’s number of parameters is _infinite_ (determined by data).
+  > A parametric model is characterized by having a _fixed_ number of parameters, whereas a non-parametric model’s number of parameters is _infinite_ (determined by data).
 
 - As an example, let’s say the problem is to fit a square peg into the correct (square)
   hole. Some humans (such as babies) just jam it into all the holes until it fits somewhere
@@ -193,3 +191,63 @@ $$\text{Pred: } 98\% \quad > \quad \text{Truth: } 0\%$$
 - In theory, the next time this step saw the same sports stats, the prediction would be lower than 98%. Note that each knob represents the _prediction’s sensitivity to different types of input data_. That’s what you’re changing when you “learn.”
 
 ![](learn_sup_para.png)
+
+## Unsupervised parameteric learning
+
+- Unsupervised _parametric_ learning uses knobs to group data.
+- But in this case, it usually has several knobs for each group, each of which maps the input data’s affinity to that particular group (with exceptions and nuance—this is a high-level description)
+
+  ![](un-para.png)
+
+- Each group’s machine attempts to transform the input data to a number between 0 and 1,
+  telling us the _probability that the input data is a member of that group_. There is a great deal
+  of variety in how these models train and their resulting properties, but at a high level they
+  adjust parameters to transform the input data into its subscribing group(s)
+
+## Nonparameteric learning
+
+### Oversimplified: Counting-based methods
+
+- Nonparametric learning is a class of algorithm wherein the number of parameters is based on data (instead of predefined).
+- This lends itself to methods that generally count in one way or another, thus increasing the number of parameters based on the number of items being counted within the data.
+
+#### Supervised nonparameteric
+
+- In the supervised setting, for example, a nonparametric model might count the number of times a particular color of streetlight causes cars to “go.”
+- After counting only a few examples, this model would then be able to predict that middle lights always (100%) cause cars to go, and right lights only sometimes (50%) cause cars to go.
+
+  ![](sup-nonpara.png)
+
+- Notice that this model would have three parameters: three counts indicating the number of times each colored light turned on and cars would go (perhaps divided by the number of total observations). If there were five lights, there would be five counts (five parameters).
+
+  > What makes this simple model nonparametric is this trait wherein the number of parameters changes based on the data (in this case, the number of lights). This is in contrast to parametric models, which start with a set number of parameters and, more important, can have more or fewer parameters purely at the discretion of the scientist training the model (regardless of data).
+
+  > A close eye might question this idea. The parametric model from before seemed to have a knob for each input datapoint. Most parametric models still have to have some sort of _input based on the number of classes in the data_. Thus you can see that there is a _gray area_ between parametric and nonparametric algorithms. Even parametric algorithms are somewhat influenced by the number of classes in the data, even if they aren’t explicitly counting patterns.
+
+- This also illuminates that **_parameters_** is a generic term, **_referring only to the set of numbers used to model a pattern_** (without any limitation on how those numbers are used).
+
+  - Counts are parameters.
+  - Weights are parameters.
+  - Normalized variants of counts or weights are parameters.
+  - Correlation coefficients can be parameters.
+
+  > **The term refers to the set of numbers used to model a pattern.**
+
+# Summery
+
+## I have learnt that
+
+1. Machine learning algorithm is either **supervised** or **unsupervised** and either **parametric** or **nonparametric**.
+2. **Supervised machine learning is a class of algorithm where you learn to predict one dataset given another** and that **unsupervised learning generally groups a single dataset into various kinds of clusters**.
+3. **Parametric algorithms have a fixed number of _parameters_** and that **nonparametric algorithms adjust their number of _parameters_ based on the dataset**.
+4. Deep learning uses neural networks to perform both supervised and unsupervised prediction.
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+# Until now, we’ve stayed at a conceptual level as you got your bearings in the field as a whole and your place in it. In the next chapter, you’ll build your first neural network, and all subsequent chapters will be project based. So, pull out your Jupyter notebook, and let’s jump in🧑‍💻!
+
+# LET COOK🧑‍🍳🍽️🍴🔪🍳🍪🧑‍💻
